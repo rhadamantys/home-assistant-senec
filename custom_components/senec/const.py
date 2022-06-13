@@ -26,7 +26,7 @@ DEFAULT_NAME = "senec"
 """Fixed constants."""
 SCAN_INTERVAL = timedelta(seconds=60)
 SENEC_SENSOR_STANDARD = "SenecSensor"
-SENEC_SENSOR_INTEGRAL = "SenecSensorIntegral"
+SENEC_SENSOR_DERIVATIVE = "SenecSensorDerivative"
 
 
 @dataclass
@@ -40,7 +40,7 @@ class SenecSensorEntityDescriptionMixin:
 class SenecSensorEntityDescription(
     SensorEntityDescription, SenecSensorEntityDescriptionMixin
 ):
-    """Describes EnOcean sensor entity."""
+    """Describes Senec sensor entity."""
 
 
 """Supported sensor types."""
@@ -215,6 +215,6 @@ SENSOR_TYPES = [
         icon="mdi:home-import-outline",
         device_class=SensorDeviceClass.POWER,
         state_class=SensorStateClass.MEASUREMENT,
-        type=SENEC_SENSOR_INTEGRAL,
+        type=SENEC_SENSOR_DERIVATIVE,
     ),
 ]
